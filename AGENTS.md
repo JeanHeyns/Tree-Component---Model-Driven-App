@@ -1,7 +1,7 @@
 <claude-mem-context>
 # Memory Context
 
-# [TreeSelectControlModelDriven] recent context, 2026-05-05 2:59pm GMT+2
+# [TreeSelectControlModelDriven] recent context, 2026-05-05 3:11pm GMT+2
 
 Legend: 🎯session 🔴bugfix 🟣feature 🔄refactor ✅change 🔵discovery ⚖️decision 🚨security_alert 🔐security_note
 Format: ID TIME TYPE TITLE
@@ -57,8 +57,6 @@ Stats: 50 obs (17,566t read) | 391,661t work | 96% savings
 219 11:54a ✅ N:N multi-select feature implementation built successfully
 220 11:55a ✅ Added N:N multi-select documentation and configuration examples to README
 221 11:57a 🟣 N:N multi-select feature deployed to dev-jehe.crm4.dynamics.com
-S77 User requested clarification on correct relationship schema name and table name for a Dataverse lookup field configuration in a Microsoft Dynamics project context (exp_msdyn_project_exp_Lookup_exp_Lookup2) (May 5, 11:57 AM)
-S78 Fix "Cannot read properties of undefined (reading '_execute')" error occurring during N:N multiselect value selection in TreeLookup control (May 5, 12:02 PM)
 S79 Fix TreeSelector multiselect display to show selected item names instead of count, normalize GUID matching, adjust dropdown width to match combobox, and correct visual styling (May 5, 12:09 PM)
 S80 UI refinements to TreeSelector control: reduce field size to match standard combobox, remove clear button icon, fix text size inconsistency (May 5, 1:06 PM)
 S81 Refactor TreeLookup PCF combobox trigger styling to use CSS Grid layout with core styling specifications, and deploy to Dynamics environment (May 5, 1:18 PM)
@@ -69,14 +67,16 @@ S83 Push PCF control code to https://dev-jehe.crm4.dynamics.com/ (May 5, 1:36 PM
 S84 Provided deployment command instructions for pushing PCF control to dev-jehe.crm4.dynamics.com (May 5, 2:07 PM)
 S85 Deploy TreeLookup PCF control code to Dynamics 365 dev environment (https://dev-jehe.crm4.dynamics.com/) (May 5, 2:09 PM)
 224 2:46p 🟣 View-based filtering for TreeLookup control
-S86 Prepare TreeLookup PCF control as importable Dataverse solution with ppm_ customization prefix (May 5, 2:57 PM)
-**Investigated**: Examined existing PCF control project structure (TreeLookup.pcfproj), manifest configuration, and package.json dependencies. Verified React 17, FluentUI components, and build scripts. Discovered project not in git repository initially.
+S86 Prepare TreeLookup PCF control as importable Dataverse solution with ppm_ customization prefix (May 5, 2:51 PM)
+S87 Prepare TreeLookup PCF control as importable Dataverse solution with ppm_ prefix and deploy to GitHub repository (May 5, 2:57 PM)
+S88 Verify that TreeLookup solution packages are persisted on GitHub repository (May 5, 3:03 PM)
+**Investigated**: Checked local git index for solution files in dist/solutions/, reviewed git log history for dist/solutions directory, and verified remote origin/main branch contains both solution ZIPs using git ls-tree.
 
-**Learned**: PowerApps CLI (pac solution) requires unique solution name different from PCF project name to avoid conflicts. Solution Packager automatically applies customization prefix to control names and paths in solution package (Controls/ppm_Exerti.TreeLookup/). Managed (1) vs Unmanaged (0) package types are distinguished in solution.xml <Managed> tag. Both variants produce identical ZIP structure and size (~422KB) but differ in deployment intent.
+**Learned**: Both TreeLookupSolution_managed.zip and TreeLookupSolution_unmanaged.zip are successfully tracked in git and present on GitHub's origin/main branch. Solution files were committed in the initial commit (6607731) and have remained clean since. Git tracking of binary files (solution ZIPs) works reliably without issues.
 
-**Completed**: Created Dataverse solution project (TreeLookupSolution) with publisher "PPM" and customization prefix "ppm". Built and packaged control in both managed and unmanaged variants. Verified solution ZIP structure contains control with ppm_ prefix applied throughout (control name, directory path, customizations.xml entries). Copied delivery artifacts to dist/solutions/ folder. Initialized git repository with .gitignore to exclude build artifacts (node_modules/, obj/, out/, .claude/, solution build outputs). Removed failed attempt directory (solution/TreeLookup) that conflicted with solution name.
+**Completed**: Verified that dist/solutions/TreeLookupSolution_managed.zip and dist/solutions/TreeLookupSolution_unmanaged.zip are both: (1) tracked in local git index, (2) included in origin/main on GitHub, and (3) unchanged since initial commit. Confirmed 422,241 byte size consistent across both managed and unmanaged variants.
 
-**Next Steps**: Session completed delivery of importable solutions. Git initialization encountered permission denied on index.lock (non-blocking for current scope). Deliverables ready in dist/solutions/ with both managed and unmanaged options for import into target Dataverse environment.
+**Next Steps**: Session work complete. Solution packages are safely persisted on GitHub and ready for deployment. No further work pending on deliverables. AGENTS.md has pending local context updates but this does not affect the solution delivery artifacts.
 
 
 Access 392k tokens of past work via get_observations([IDs]) or mem-search skill.

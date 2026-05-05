@@ -235,22 +235,38 @@ export const TreeSelector: React.FC<TreeSelectorProps> = ({ context, onSelection
                     id: targetId,
                 };
                 const isSelected = relatedSelectedIds.has(targetId);
+
+                // Optimistic update — UI responds immediately
+                if (isSelected) {
+                    setRelatedSelectedIds(prev => {
+                        const next = new Set(prev);
+                        next.delete(targetId);
+                        return next;
+                    });
+                } else {
+                    setRelatedSelectedIds(prev => new Set([...prev, targetId]));
+                }
+
                 setSavingIds(prev => new Set([...prev, targetId]));
                 setRelationshipError(null);
 
                 try {
                     if (isSelected) {
                         await disassociateRecord(sourceRecord, target, config.relationshipSchemaName);
+                    } else {
+                        await associateRecord(sourceRecord, target, config.relationshipSchemaName);
+                    }
+                } catch (err) {
+                    // Rollback optimistic update
+                    if (isSelected) {
+                        setRelatedSelectedIds(prev => new Set([...prev, targetId]));
+                    } else {
                         setRelatedSelectedIds(prev => {
                             const next = new Set(prev);
                             next.delete(targetId);
                             return next;
                         });
-                    } else {
-                        await associateRecord(sourceRecord, target, config.relationshipSchemaName);
-                        setRelatedSelectedIds(prev => new Set([...prev, targetId]));
                     }
-                } catch (err) {
                     setRelationshipError((err as Error).message ?? 'Failed to update relationship');
                 } finally {
                     setSavingIds(prev => {
@@ -309,6 +325,10 @@ export const TreeSelector: React.FC<TreeSelectorProps> = ({ context, onSelection
                 const ids = Array.from(relatedSelectedIds);
                 setSavingIds(new Set(ids));
                 setRelationshipError(null);
+
+                // Optimistic clear
+                setRelatedSelectedIds(new Set());
+
                 try {
                     await Promise.all(ids.map(id =>
                         disassociateRecord(
@@ -317,8 +337,9 @@ export const TreeSelector: React.FC<TreeSelectorProps> = ({ context, onSelection
                             config.relationshipSchemaName!
                         )
                     ));
-                    setRelatedSelectedIds(new Set());
                 } catch (err) {
+                    // Rollback optimistic clear
+                    setRelatedSelectedIds(new Set(ids));
                     setRelationshipError((err as Error).message ?? 'Failed to clear relationships');
                 } finally {
                     setSavingIds(new Set());
