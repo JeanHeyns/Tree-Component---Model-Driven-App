@@ -1,6 +1,6 @@
 {
   "name": "treelookup",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Hierarchical tree lookup PCF control for Dynamics 365 Model-Driven Apps",
   "scripts": {
     "build": "pcf-scripts build",
