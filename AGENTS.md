@@ -1,7 +1,7 @@
 <claude-mem-context>
 # Memory Context
 
-# [TreeSelectControlModelDriven] recent context, 2026-05-05 2:57pm GMT+2
+# [TreeSelectControlModelDriven] recent context, 2026-05-05 2:59pm GMT+2
 
 Legend: 🎯session 🔴bugfix 🟣feature 🔄refactor ✅change 🔵discovery ⚖️decision 🚨security_alert 🔐security_note
 Format: ID TIME TYPE TITLE
@@ -48,7 +48,6 @@ Stats: 50 obs (17,566t read) | 391,661t work | 96% savings
 210 11:18a 🔵 React version mismatch: TypeScript definitions for React 17 with React 19 runtime
 211 11:19a 🔴 Pinned React and ReactDOM to version 17.0.2 to resolve API compatibility
 212 11:40a ✅ Added WebAPI feature declaration to PCF control manifest
-S76 Implement and deploy N:N multi-select feature for TreeLookup PCF control with dual-mode selection (single lookup binding vs N:N relationship storage) (May 5, 11:47 AM)
 213 11:49a ✅ Added manifest properties and type definitions for N:N multi-select support
 214 11:51a ✅ Extended config validator to parse and validate N:N multi-select configuration
 215 " 🟣 Implemented N:N multi-select infrastructure with WebAPI association management
@@ -68,15 +67,16 @@ S82 Fix TreeSelector component styling: restore grey background (#f3f3f3) and co
 223 " ✅ Successful deployment to Dynamics CRM environment
 S83 Push PCF control code to https://dev-jehe.crm4.dynamics.com/ (May 5, 1:36 PM)
 S84 Provided deployment command instructions for pushing PCF control to dev-jehe.crm4.dynamics.com (May 5, 2:07 PM)
+S85 Deploy TreeLookup PCF control code to Dynamics 365 dev environment (https://dev-jehe.crm4.dynamics.com/) (May 5, 2:09 PM)
 224 2:46p 🟣 View-based filtering for TreeLookup control
-S85 Deploy TreeLookup PCF control code to Dynamics 365 dev environment (https://dev-jehe.crm4.dynamics.com/) (May 5, 2:51 PM)
-**Investigated**: Build pipeline execution for PCF control packaging, NuGet dependency restoration, Webpack bundling, Solution Packager processing, and Dynamics 365 deployment/publishing flow
+S86 Prepare TreeLookup PCF control as importable Dataverse solution with ppm_ customization prefix (May 5, 2:57 PM)
+**Investigated**: Examined existing PCF control project structure (TreeLookup.pcfproj), manifest configuration, and package.json dependencies. Verified React 17, FluentUI components, and build scripts. Discovered project not in git repository initially.
 
-**Learned**: PCF control build process includes npm build, manifest validation, ESLint checking, webpack compilation (1.93 MiB bundle), solution packaging (unmanaged .zip), and org-level import with customization publishing. New targetViewId property enables filtering lookup records by system or personal view GUID, providing view-based filtering without hardcoded FetchXML.
+**Learned**: PowerApps CLI (pac solution) requires unique solution name different from PCF project name to avoid conflicts. Solution Packager automatically applies customization prefix to control names and paths in solution package (Controls/ppm_Exerti.TreeLookup/). Managed (1) vs Unmanaged (0) package types are distinguished in solution.xml <Managed> tag. Both variants produce identical ZIP structure and size (~422KB) but differ in deployment intent.
 
-**Completed**: TreeLookup PCF control successfully built and deployed to dev environment. Build completed in 17.68 seconds with zero errors/warnings. Solution imported and all customizations published. New feature added: targetViewId parameter allows filtering by view GUID (useful for exp_lookup entity with multiple custom views like adminlines and cost center views). Modified files: ControlManifest.Input.xml, services/dataService.ts, services/configValidator.ts, types.ts, README.md.
+**Completed**: Created Dataverse solution project (TreeLookupSolution) with publisher "PPM" and customization prefix "ppm". Built and packaged control in both managed and unmanaged variants. Verified solution ZIP structure contains control with ppm_ prefix applied throughout (control name, directory path, customizations.xml entries). Copied delivery artifacts to dist/solutions/ folder. Initialized git repository with .gitignore to exclude build artifacts (node_modules/, obj/, out/, .claude/, solution build outputs). Removed failed attempt directory (solution/TreeLookup) that conflicted with solution name.
 
-**Next Steps**: Testing the new targetViewId feature in the dev environment with actual views and verifying view-based filtering works correctly for the exp_lookup entity and other scenarios
+**Next Steps**: Session completed delivery of importable solutions. Git initialization encountered permission denied on index.lock (non-blocking for current scope). Deliverables ready in dist/solutions/ with both managed and unmanaged options for import into target Dataverse environment.
 
 
 Access 392k tokens of past work via get_observations([IDs]) or mem-search skill.
