@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest>
+  <control namespace="Exerti"
+           constructor="TreeLookup"
+           version="1.0.0"
+           display-name-key="TreeLookup_Display"
+           description-key="TreeLookup_Desc"
+           control-type="standard">
+
+    <!-- Bound lookup field -->
+    <property name="selectedValue"
+              display-name-key="SelectedValue_Display"
+              description-key="SelectedValue_Desc"
+              of-type="Lookup.Simple"
+              usage="bound"
+              required="true" />
+
+    <!-- Data source configuration -->
+    <property name="targetEntityName"
+              display-name-key="TargetEntityName_Display"
+              description-key="TargetEntityName_Desc"
+              of-type="SingleLine.Text"
+              usage="input"
+              required="true" />
+
+    <property name="parentLookupField"
+              display-name-key="ParentLookupField_Display"
+              description-key="ParentLookupField_Desc"
+              of-type="SingleLine.Text"
+              usage="input"
+              required="false" />
+
+    <property name="displayField"
+              display-name-key="DisplayField_Display"
+              description-key="DisplayField_Desc"
+              of-type="SingleLine.Text"
+              usage="input"
+              required="true" />
+
+    <property name="idField"
+              display-name-key="IdField_Display"
+              description-key="IdField_Desc"
+              of-type="SingleLine.Text"
+              usage="input"
+              required="false" />
+
+    <property name="additionalSelectFields"
+              display-name-key="AdditionalSelectFields_Display"
+              description-key="AdditionalSelectFields_Desc"
+              of-type="SingleLine.Text"
+              usage="input"
+              required="false" />
+
+    <property name="targetViewId"
+              display-name-key="TargetViewId_Display"
+              description-key="TargetViewId_Desc"
+              of-type="SingleLine.Text"
+              usage="input"
+              required="false" />
+
+    <property name="orderBy"
+              display-name-key="OrderBy_Display"
+              description-key="OrderBy_Desc"
+              of-type="SingleLine.Text"
+              usage="input"
+              required="false" />
+
+    <property name="selectionMode"
+              display-name-key="SelectionMode_Display"
+              description-key="SelectionMode_Desc"
+              of-type="SingleLine.Text"
+              usage="input"
+              required="false" />
+
+    <property name="relationshipSchemaName"
+              display-name-key="RelationshipSchemaName_Display"
+              description-key="RelationshipSchemaName_Desc"
+              of-type="SingleLine.Text"
+              usage="input"
+              required="false" />
+
+    <property name="sourceEntityName"
+              display-name-key="SourceEntityName_Display"
+              description-key="SourceEntityName_Desc"
+              of-type="SingleLine.Text"
+              usage="input"
+              required="false" />
+
+    <!-- UI string overrides -->
+    <property name="placeholderText"
+              display-name-key="PlaceholderText_Display"
+              description-key="PlaceholderText_Desc"
+              of-type="SingleLine.Text"
+              usage="input"
+              required="false" />
+
+    <property name="searchPlaceholderText"
+              display-name-key="SearchPlaceholderText_Display"
+              description-key="SearchPlaceholderText_Desc"
+              of-type="SingleLine.Text"
+              usage="input"
+              required="false" />
+
+    <feature-usage>
+      <uses-feature name="WebAPI" required="true" />
+    </feature-usage>
+
+    <resources>
+      <code path="index.ts" order="1" />
+      <resx path="strings/TreeLookup.1033.resx" version="1.0.0" />
+    </resources>
+  </control>
+</manifest>

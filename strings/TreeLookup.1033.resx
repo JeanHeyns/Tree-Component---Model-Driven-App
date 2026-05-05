@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+
+  <!-- Control metadata -->
+  <data name="TreeLookup_Display" xml:space="preserve">
+    <value>Tree Lookup</value>
+  </data>
+  <data name="TreeLookup_Desc" xml:space="preserve">
+    <value>Hierarchical tree selector for self-referencing lookup tables.</value>
+  </data>
+
+  <!-- UI strings -->
+  <data name="Placeholder_NoSelection" xml:space="preserve">
+    <value>Select a value...</value>
+  </data>
+  <data name="EmptyState_NoRecords" xml:space="preserve">
+    <value>No records available</value>
+  </data>
+  <data name="EmptyState_NoSearchResults" xml:space="preserve">
+    <value>No results found</value>
+  </data>
+  <data name="Search_Placeholder" xml:space="preserve">
+    <value>Search...</value>
+  </data>
+  <data name="ClearButton_AriaLabel" xml:space="preserve">
+    <value>Clear selection</value>
+  </data>
+  <data name="OrphanRecord_Tooltip" xml:space="preserve">
+    <value>Parent record not found</value>
+  </data>
+
+  <!-- Property display names -->
+  <data name="SelectedValue_Display" xml:space="preserve">
+    <value>Selected Value</value>
+  </data>
+  <data name="SelectedValue_Desc" xml:space="preserve">
+    <value>The bound lookup field that stores the selected record.</value>
+  </data>
+  <data name="TargetEntityName_Display" xml:space="preserve">
+    <value>Target Entity Name</value>
+  </data>
+  <data name="TargetEntityName_Desc" xml:space="preserve">
+    <value>Logical name of the entity to display (e.g. new_category).</value>
+  </data>
+  <data name="ParentLookupField_Display" xml:space="preserve">
+    <value>Parent Lookup Field</value>
+  </data>
+  <data name="ParentLookupField_Desc" xml:space="preserve">
+    <value>Optional logical name of the self-referencing lookup field. Leave empty for a flat searchable list.</value>
+  </data>
+  <data name="DisplayField_Display" xml:space="preserve">
+    <value>Display Field</value>
+  </data>
+  <data name="DisplayField_Desc" xml:space="preserve">
+    <value>Logical name of the field shown as the node label (e.g. new_name).</value>
+  </data>
+  <data name="IdField_Display" xml:space="preserve">
+    <value>ID Field</value>
+  </data>
+  <data name="IdField_Desc" xml:space="preserve">
+    <value>Primary key field. Defaults to entitynameid if left empty.</value>
+  </data>
+  <data name="AdditionalSelectFields_Display" xml:space="preserve">
+    <value>Additional Select Fields</value>
+  </data>
+  <data name="AdditionalSelectFields_Desc" xml:space="preserve">
+    <value>Comma-separated extra fields to retrieve (e.g. for tooltip info).</value>
+  </data>
+  <data name="TargetViewId_Display" xml:space="preserve">
+    <value>Target View ID</value>
+  </data>
+  <data name="TargetViewId_Desc" xml:space="preserve">
+    <value>Optional system or personal view GUID used to filter the target records.</value>
+  </data>
+  <data name="OrderBy_Display" xml:space="preserve">
+    <value>Order By</value>
+  </data>
+  <data name="OrderBy_Desc" xml:space="preserve">
+    <value>OData orderby expression (e.g. new_name asc). Defaults to displayField asc.</value>
+  </data>
+  <data name="SelectionMode_Display" xml:space="preserve">
+    <value>Selection Mode</value>
+  </data>
+  <data name="SelectionMode_Desc" xml:space="preserve">
+    <value>Use single for bound lookup storage or multiple for N:N relationship storage.</value>
+  </data>
+  <data name="RelationshipSchemaName_Display" xml:space="preserve">
+    <value>Relationship Schema Name</value>
+  </data>
+  <data name="RelationshipSchemaName_Desc" xml:space="preserve">
+    <value>N:N relationship schema/navigation name used when Selection Mode is multiple.</value>
+  </data>
+  <data name="SourceEntityName_Display" xml:space="preserve">
+    <value>Source Entity Name</value>
+  </data>
+  <data name="SourceEntityName_Desc" xml:space="preserve">
+    <value>Optional logical name of the current form table. Leave empty to infer from the form context.</value>
+  </data>
+  <data name="PlaceholderText_Display" xml:space="preserve">
+    <value>Placeholder Text</value>
+  </data>
+  <data name="PlaceholderText_Desc" xml:space="preserve">
+    <value>Override the placeholder shown when no value is selected.</value>
+  </data>
+  <data name="SearchPlaceholderText_Display" xml:space="preserve">
+    <value>Search Placeholder Text</value>
+  </data>
+  <data name="SearchPlaceholderText_Desc" xml:space="preserve">
+    <value>Override the placeholder shown inside the search box.</value>
+  </data>
+</root>

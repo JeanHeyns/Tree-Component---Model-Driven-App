@@ -1,0 +1,17 @@
+node_modules/
+obj/
+out/
+.claude/
+
+bin/
+*.log
+*.binlog
+*.tsbuildinfo
+
+.DS_Store
+Thumbs.db
+
+solution/**/bin/
+solution/**/obj/
+!dist/
+!dist/**
